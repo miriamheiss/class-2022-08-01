@@ -1,22 +1,38 @@
 ---
-title: "analysis"
+title: "Utah County Population in 2018"
 author: "Miriam Heiss"
 date: "2022-08-02"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, message = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## R Markdown
 
-```{r}
+```{r library, include = FALSE}
 library(tidyverse)
+library(MetBrewer)
+library(scales)
 ```
 
-```{r}
+```{r ec_to-r, inlcue = FALSE, echo = FALSE, message = FALSE}
 ec <- read_rds("ec.rds")
 summary(ec)
 ```
 
+
+```{r plotting, warning = FALSE}
+ec|> 
+  filter(str_detect(county_name, "Utah"))|>
+  ggplot(mapping = aes(pop2018)) +
+  geom_histogram(bins = 17, color = "white", fill = "darkolivegreen4") +
+  labs(title = "Population in Utah Counties (2018)",
+       x = "Population (2018)",
+       y = "Count",
+       subtitle = "Few counties above 100,000") + 
+  scale_x_log10(breaks = c(1000, 10000, 100000, 1000000, 10000000), 
+                labels = comma) +
+  theme_bw()
+```

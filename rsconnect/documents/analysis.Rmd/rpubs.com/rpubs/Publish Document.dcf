@@ -1,0 +1,11 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/929063/c531518e6b7b44d5a9fb55a9238b241b
+bundleId: https://api.rpubs.com/api/v1/document/929063/c531518e6b7b44d5a9fb55a9238b241b
+url: http://rpubs.com/miriamheiss/929063
+when: 1659405636.38869
+lastSyncTime: 1659405636.3887
